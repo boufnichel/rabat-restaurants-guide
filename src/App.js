@@ -5,31 +5,51 @@ const restaurants = [
     name: "Restaurant Marea",
     rating: 4.7,
     address: "9 rue AL Mariniyine, Rabat 10020, Morocco",
-    location: [34.0209399, -6.8281629]
+    location: [34.0209399, -6.8281629],
+    comments: [
+      "Amazing seafood! The freshest catch in Rabat.",
+      "Elegant atmosphere, worth every dirham."
+    ]
   },
   {
     name: "Dar Al Achab",
     rating: 4.5,
     address: "34, Avenue al alaouiyine, Av. Moulay Hassan, Rabat 10020, Morocco",
-    location: [34.0214705, -6.825218200000001]
+    location: [34.0214705, -6.825218200000001],
+    comments: [
+      "Traditional Moroccan cuisine at its finest!",
+      "Incredible tajine, truly authentic flavors."
+    ]
   },
   {
     name: "Sufra Restaurant",
     rating: 4.5,
     address: "19 Av. Moulay Rachid, Rabat, Morocco",
-    location: [34.0206282, -6.830479599999999]
+    location: [34.0206282, -6.830479599999999],
+    comments: [
+      "Best couscous in town, highly recommended!",
+      "Friendly staff and beautiful interior design."
+    ]
   },
   {
     name: "Dar El Medina",
     rating: 4.4,
     address: "3 rue benjelloul souk sebbat, Rabat, Morocco",
-    location: [34.0264242, -6.8335072]
+    location: [34.0264242, -6.8335072],
+    comments: [
+      "Charming restaurant with a great view of the medina.",
+      "Delicious local specialties, must-visit spot."
+    ]
   },
   {
     name: "Ty Potes",
     rating: 4.4,
     address: "11 Rue Ghafsa, Rabat 10000, Morocco",
-    location: [34.0171791, -6.831948799999999]
+    location: [34.0171791, -6.831948799999999],
+    comments: [
+      "Fun atmosphere and great international cuisine!",
+      "Perfect for a night out with friends."
+    ]
   }
 ];
 
@@ -79,6 +99,16 @@ function App() {
               <h2 className="text-2xl font-bold mb-4">{selectedRestaurant.name}</h2>
               <p className="text-yellow-600 mb-2">Rating: {selectedRestaurant.rating} ★</p>
               <p className="text-gray-700 mb-4">{selectedRestaurant.address}</p>
+              
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold mb-2">Recent Comments:</h3>
+                {selectedRestaurant.comments.map((comment, index) => (
+                  <div key={index} className="bg-gray-100 p-3 rounded mb-2">
+                    <p className="text-gray-700 italic">"{comment}"</p>
+                  </div>
+                ))}
+              </div>
+              
               <div className="flex space-x-4">
                 <a 
                   href={`https://maps.google.com/maps?q=${selectedRestaurant.location[0]},${selectedRestaurant.location[1]}`} 
